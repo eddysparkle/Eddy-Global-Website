@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Eddy Global</title>
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    /* Global */
+    * { margin:0; padding:0; box-sizing:border-box; }
+    body {
+      font-family:'Poppins', sans-serif;
+      background:#0b0b0b;
+      color:#f5f5f5;
+      line-height:1.8;
+      scroll-behavior: smooth;
+    }
+
+    /* Header */
+    header {
+      position:fixed;
+      top:0; left:0;
+      width:100%;
+      display:flex;
+      align-items:center;
+      padding:15px 25px;
+      background:#0b0b0b;
+      z-index:1000;
+      border-bottom:1px solid #2a2a2a;
+    }
+    .logo { font-size:28px; font-weight:700; color:#c9a24d; letter-spacing:1px; }
+    .nav-links {
+      display:flex;
+      gap:20px;
+      margin-left:auto;
+    }
+    .nav-links a {
+      color:#f5f5f5; text-decoration:none; font-weight:600;
+      transition:0.3s;
+    }
+    .nav-links a:hover { color:#c9a24d; }
+
+    /* Hamburger */
+    .hamburger { display:none; flex-direction:column; gap:5px; cursor:pointer; margin-right:20px; }
+    .hamburger div { width:25px; height:3px; background:#f5f5f5; transition:0.3s; }
+    @media(max-width:768px){
+      .hamburger { display:flex; }
+      .nav-links {
+        position:fixed;
+        top:0; left:-250px;
+        flex-direction:column;
+        width:220px;
+        height:100%;
+        padding-top:80px;
+        gap:25px;
+        background:rgba(11,11,11,0.98);
+        transition:0.3s;
+      }
+      .nav-links.active { left:0; }
+    }
+
+    /* Buttons */
+    .btn {
+      display:inline-block;
+      margin-top:25px;
+      padding:14px 38px;
+      border:1px solid #c9a24d;
+      color:#c9a24d;
+      text-decoration:none;
+      font-weight:600;
+      border-radius:8px;
+      transition:all 0.3s ease;
+      cursor:pointer;
+    }
+    .btn:hover { background:#c9a24d; color:#0b0b0b; }
+
+    /* Sections */
+    section { padding:100px 20px; text-align:center; }
+    section.hero { padding-top:160px; background:linear-gradient(to right, #111, #222); color:#f5f5f5; }
+    h1 { font-size:56px; letter-spacing:1px; }
+    h2 { font-size:36px; margin-bottom:25px; color:#c9a24d; }
+    p { max-width:850px; margin:0 auto 20px; font-size:17px; }
+    img { max-width:90%; border-radius:12px; margin:30px 0; }
+
+    /* Fade-in */
+    .fade-in { opacity:0; transform:translateY(20px); transition:0.8s ease-out; }
+    .fade-in.visible { opacity:1; transform:translateY(0); }
+
+    /* Floating WhatsApp */
+    .whatsapp-float {
+      position:fixed; bottom:25px; right:25px;
+      width:60px; height:60px;
+      background:#25D366; border-radius:50%;
+      display:flex; justify-content:center; align-items:center;
+      box-shadow:0 5px 15px rgba(0,0,0,0.3); z-index:999;
+      transition:all 0.3s;
+    }
+    .whatsapp-float:hover { transform:scale(1.1); box-shadow:0 8px 20px rgba(0,0,0,0.4); }
+    .whatsapp-float img { width:35px; height:35px; }
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <header>
+    <div class="hamburger" id="hamburger">
+      <div></div><div></div><div></div>
+    </div>
+    <div class="logo">Eddy Global</div>
+    <nav>
+      <div class="nav-links" id="navLinks">
+        <a href="#hero">Home</a>
+        <a href="#about">About</a>
+        <a href="#sales">Sales</a>
+        <a href="#process">Process</a>
+        <a href="#contact">Connect</a>
+      </div>
+    </nav>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero fade-in" id="hero">
+    <h1>Turn Clicks Into Customers</h1>
+    <p style="color:#c9a24d; font-size:20px;">Helping businesses grow revenue through smart, high-converting ad campaigns.</p>
+    <img src="https://images.unsplash.com/photo-1556761175-129418cb2dfe" alt="Business Advertising Strategy">
+    <a href="https://wa.me/2348169969680" target="_blank" class="btn">Connect on WhatsApp</a>
+    <a href="#contact" class="btn">Start Conversation</a>
+  </section>
+
+  <!-- About Section -->
+  <section class="fade-in" id="about">
+    <h2>About Eddy Global</h2>
+    <p>Eddy Global is a personal authority brand focused on strategic advertising designed to help businesses generate consistent and scalable sales.</p>
+    <p>Our approach ensures predictable revenue by building structured campaigns that actually convert.</p>
+    <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f" alt="Marketing Strategy Meeting">
+  </section>
+
+  <!-- Sales Section -->
+  <section class="fade-in" id="sales">
+    <h2>Advertising That Drives Sales</h2>
+    <ul style="list-style:none; padding:0; margin-bottom:20px;">
+      <li>Audience Research & Targeting</li>
+      <li>High-Converting Ad Messaging</li>
+      <li>Campaign Structure & Funnel Setup</li>
+      <li>Ongoing Performance Optimization</li>
+    </ul>
+    <img src="https://images.unsplash.com/photo-1553877522-43269d4ea984" alt="Digital Advertising Dashboard">
+  </section>
+
+  <!-- Process Section -->
+  <section class="fade-in" id="process">
+    <h2>Our Professional Process</h2>
+    <p>Nothing is rushed. Nothing is guessed. Businesses trust Eddy Global for structured campaigns and measurable results.</p>
+    <ul style="list-style:none; padding:0; margin-bottom:20px;">
+      <li>Understanding business goals</li>
+      <li>Building structured advertising strategy</li>
+      <li>Launching & monitoring campaigns</li>
+      <li>Optimizing for performance and scale</li>
+    </ul>
+    <img src="https://images.unsplash.com/photo-1503387762-592deb58ef4e" alt="Business Growth Planning">
+  </section>
+
+  <!-- Testimonials Section -->
+  <section class="fade-in" id="testimonials">
+    <h2>What Clients Say</h2>
+    <img src="https://images.unsplash.com/photo-1521737604893-d14cc237f11d" alt="Client Discussion">
+    <p style="font-style:italic;">“Working with Eddy Global brought structure to our advertising. The focus on strategy and sales made a clear difference in our results.”</p>
+    <p style="color:#c9a24d;">— Business Owner</p>
+    <p style="font-style:italic;">“Clear communication, disciplined execution, and measurable progress. Eddy Global understands how advertising should work.”</p>
+    <p style="color:#c9a24d;">— Brand Manager</p>
+    <a href="https://wa.me/2348169969680?text=Hello%20Eddy%20Global,%20I%20am%20interested%20in%20your%20advertising%20services." target="_blank" class="btn">Start Conversation</a>
+  </section>
+
+  <!-- Contact Section -->
+  <section class="fade-in" id="contact">
+    <h2>Connect</h2>
+    <p>Work with us if you’re ready to invest in structured advertising for measurable sales growth.</p>
+    <p style="color:#c9a24d; font-size:18px;">WhatsApp: 
+      <a href="https://wa.me/2348169969680" style="color:#c9a24d;">+2348169969680</a> | 
+      <a href="https://wa.me/2349022822745" style="color:#c9a24d;">+2349022822745</a>
+    </p>
+  </section>
+
+  <!-- Floating WhatsApp -->
+  <a href="https://wa.me/2348169969680?text=Hello%20Eddy%20Global,%20I%20am%20interested%20in%20your%20services." target="_blank" class="whatsapp-float">
+    <img src="https://cdn-icons-png.flaticon.com/512/220/220236.png" alt="WhatsApp">
+  </a>
+
+  <!-- Scripts -->
+  <script>
+    // Hamburger toggle
+    const hamburger = document.getElementById('hamburger');
+    const navLinks = document.getElementById('navLinks');
+
+    hamburger.addEventListener('click', () => {
+      navLinks.classList.toggle('active');
+    });
+
+    document.addEventListener('click', (e) => {
+      if(!navLinks.contains(e.target) && !hamburger.contains(e.target)){
+        navLinks.classList.remove('active');
+      }
+    });
+
+    // Fade in sections on scroll
+    const faders = document.querySelectorAll('.fade-in');
+    const appearOptions = { threshold:0.2, rootMargin:"0px 0px -50px 0px" };
+
+    const appearOnScroll = new IntersectionObserver(function(entries, observer){
+      entries.forEach(entry=>{
+        if(!entry.isIntersecting) return;
+        entry.target.classList.add('visible');
+        observer.unobserve(entry.target);
+      });
+    }, appearOptions);
+
+    faders.forEach(fader => appearOnScroll.observe(fader));
+  </script>
+
+</body>
+</html>
