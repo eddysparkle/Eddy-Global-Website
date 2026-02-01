@@ -134,6 +134,17 @@
   outline: 2px solid #c9a24d;
 }
 
+#form-status {
+  font-size: 0.95rem;
+  font-weight: 500;
+  opacity: 0;
+  transition: opacity 0.6s ease-in-out;
+}
+#form-status.visible {
+  opacity: 1;
+}
+
+    
   </style>
 </head>
 <body>
@@ -298,11 +309,9 @@
     faders.forEach(fader => appearOnScroll.observe(fader));
   </script>
 <script>
-  // Get the form and the status paragraph
   const form = document.getElementById("contact-form");
   const status = document.getElementById("form-status");
 
-  // Listen for form submission
   form.addEventListener("submit", async function (e) {
     e.preventDefault(); // Prevent page reload
 
@@ -312,32 +321,45 @@
       const response = await fetch(form.action, {
         method: form.method,
         body: data,
-        headers: {
-          'Accept': 'application/json'
-        }
+        headers: { 'Accept': 'application/json' }
       });
 
       if (response.ok) {
         // Show success message
         status.textContent = "✅ Thanks! Your message has been sent. We'll contact you shortly.";
         status.style.color = "green";
+        status.classList.add("visible");
 
-        // Clear the form fields
-        form.reset();
+        form.reset(); // Clear fields
 
-        // Optional: Fade out message after 5 seconds
-        setTimeout(() => { status.textContent = ""; }, 5000);
+        // Hide message after 5 seconds
+        setTimeout(() => {
+          status.classList.remove("visible");
+          status.textContent = "";
+        }, 5000);
+
       } else {
         // Show error message
         status.textContent = "❌ Oops! Something went wrong. Please try again or contact us on WhatsApp.";
         status.style.color = "red";
+        status.classList.add("visible");
+
+        setTimeout(() => {
+          status.classList.remove("visible");
+          status.textContent = "";
+        }, 5000);
       }
 
     } catch (error) {
-      // Show error message if fetch fails
       status.textContent = "❌ Oops! Something went wrong. Please try again or contact us on WhatsApp.";
       status.style.color = "red";
+      status.classList.add("visible");
       console.error("Form submission error:", error);
+
+      setTimeout(() => {
+        status.classList.remove("visible");
+        status.textContent = "";
+      }, 5000);
     }
   });
 </script>
